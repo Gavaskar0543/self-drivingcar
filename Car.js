@@ -27,8 +27,24 @@ class Car{
        if(this.speed > 0){
         this.speed-=this.friction;
        }
+    
+    
        if(this.speed<0){
         this.speed+=this.friction;
+       }
+       /*for the above logic car can still move
+        by the friction because wht the speed become 
+        less than or equal to friction.to fix this use Math.abs(speed)
+        */
+       if(Math.abs(this.speed) < this.friction){
+        this.speed = 0;
+       }
+
+       if(this.controls.left){
+        this.x -=2;
+       }
+       if(this.controls.right){
+        this.x += 2;
        }
        this.y -= this.speed;
     }
