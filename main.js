@@ -8,3 +8,12 @@ const ctx = mycanvas.getContext('2d');
 const car = new Car(100,100,30,50);
 //create car
 car.draw(ctx);
+//animate fun
+animate()
+
+function animate(){
+    car.update();
+    mycanvas.height = window.innerHeight;
+    car.draw(ctx);
+    requestAnimationFrame(animate);
+}
